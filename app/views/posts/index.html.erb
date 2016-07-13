@@ -1,0 +1,42 @@
+<div align="center" style = "border: 1px; font-size: 40px">
+	<h1>P O S T</h1>
+</div>
+
+<table border = "3px"; style = "margin: auto; font-size: 30px; border-collapse: collapse;">
+	<% @posts.each do |post| %>
+		<tr style = "border-bottom: hidden;">
+			<td colspan="3"><strong>Title</strong>:
+			<%= post.title %>
+			</td>
+		</tr>
+
+		<tr style = "border-bottom: hidden">
+			<td colspan="3"><strong>Content</strong>:
+			<%= post.text %>
+			</td>
+			
+		</tr>
+
+		<tr border-bottom = "3px">
+			<td style = "border-right: hidden">
+				<%= link_to 'Show', post_path(post) %>
+			</td>
+
+   			<td style = "border-right: hidden">
+   				<%= link_to 'Edit', edit_post_path(post) %>
+   			</td>
+   			
+   			<td><%= link_to 'Destroy', post_path(post), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+		</tr>
+		
+		<tr height = "30"></tr>
+	<% end %>
+</table>
+
+<!-- <%= link_to 'asdasdasd', new_post_path, class:"glyphicon glyphicon-barcode btn btn_default btn-custom" %> 
+<a href="/posts/new"><div class="glyphicon glyphicon-barcode btn btn_default btn-custom"></div></a>
+ -->
+
+<div align="center" style = "border: 1px; font-size: 80px">
+	<%= link_to '+', new_post_path %>
+</div>
